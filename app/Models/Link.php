@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Link extends Model
 {
     use HasFactory;
+
+    public $primaryKey = 'token';
+    public $incrementing = false;
+    public $timestamps = false;
+    protected $fillable = ['url', 'clicks_limit', 'expired_at', 'token'];
 }
