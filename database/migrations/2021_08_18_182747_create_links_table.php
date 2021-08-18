@@ -14,11 +14,10 @@ class CreateLinksTable extends Migration
     public function up()
     {
         Schema::create('links', function (Blueprint $table) {
-            $table->id();
+            $table->string('token', 8)->primary();
             $table->text('url');
             $table->integer('clicks_limit');
             $table->timestamp('expired_at');
-            $table->string('token', 8);
         });
     }
 
