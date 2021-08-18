@@ -15,9 +15,10 @@ class CreateLinksTable extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->text('url');
             $table->integer('clicks_limit');
             $table->timestamp('expired_at');
+            $table->string('token', 8);
         });
     }
 
