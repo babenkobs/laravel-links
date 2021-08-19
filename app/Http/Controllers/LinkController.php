@@ -40,12 +40,9 @@ class LinkController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'url' => 'required|url'
-        ]);
+        $url = $request->input('url');
         $link = Link::create([
-            'url' => $request->input('url'),
+            'url' => preg_match('~https?://~', $url) ? $url : '//' . $url,
             'clicks_limit' => $request->input('clicks_limit'),
             'expired_at' => date("Y-m-d H:i:s", strtotime("+" . $request->input('expired_at') . " hours")),
             'token' => Str::random(8),
