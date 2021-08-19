@@ -47,6 +47,8 @@ class LinkController extends Controller
             'expired_at' => date("Y-m-d H:i:s", strtotime("+" . $request->input('expired_at') . " hours")),
             'token' => Str::random(8),
         ]);
+
+        return redirect('/');
     }
 
     /**
@@ -58,9 +60,21 @@ class LinkController extends Controller
     public function show($token)
     {
         $link = Link::find($token);
-        //dd($link);
 
-        return redirect($link->url);
+        if (strtotime($link->expired_at) > time()) {
+            if ($link->clicks_limit > 1) {
+                $link->clicks_limit -= 1;
+                $link->save();
+            } elseif ($link->clicks_limit == 1) {
+                $link->clicks_limit = -1;
+                $link->save();
+            } elseif ($link->clicks_limit == -1) {
+                return view('404');
+            }
+
+            return redirect($link->url);
+        }
+        return view('404');
     }
 
     /**
