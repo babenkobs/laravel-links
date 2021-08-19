@@ -1,6 +1,6 @@
-Я использовал Sail для локальной работы сайта.
-Чтобы его запустить надо набрать запустить скрипт ./vendor/bin/sail up
-Это поднимет все необходимые docker контейнеры.
+Я использовал Sail для локальной работы сайта.<br>
+Чтобы его запустить надо набрать запустить скрипт ./vendor/bin/sail up<br>
+Это поднимет все необходимые docker контейнеры.<br>
 
 <p align="center"><img src="https://raw.githubusercontent.com/laravel/sail/HEAD/art/logo.svg" alt="Logo Laravel Sail"></p>
 
