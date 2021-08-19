@@ -1,0 +1,13 @@
+.form-adding-link input {
+    margin-bottom: 15px;
+}
+.badge {
+    background-color: #777;
+}
+.wrap-404 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
